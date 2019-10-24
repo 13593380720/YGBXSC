@@ -9,13 +9,13 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.xinzhi.servlet.LoginServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>CaptchaServlet</servlet-name>
-        <servlet-class>com.xinzhi.servlet.CaptchaServlet</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>CaptchaServlet</servlet-name>-->
+        <!--<servlet-class>com.xinzhi.servlet.CaptchaServlet</servlet-class>-->
+    <!--</servlet>-->
     <servlet>
         <servlet-name>RegistService</servlet-name>
-        <servlet-class>com.xinzhi.servlet.RegistService</servlet-class>
+        <servlet-class>com.xinzhi.servlet.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>VerifyCodeServlet</servlet-name>
@@ -34,10 +34,10 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CaptchaServlet</servlet-name>
-        <url-pattern>/CaptchaServlet</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>CaptchaServlet</servlet-name>-->
+        <!--<url-pattern>/CaptchaServlet</url-pattern>-->
+    <!--</servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>RegistService</servlet-name>
         <url-pattern>/RegistService</url-pattern>
