@@ -12,12 +12,11 @@ public class LoginServiceImpl implements ILoginService {
 	public String login(String phone, String password) {
 		LoginDaoimpl ldi = new LoginDaoimpl();
 		User login = ldi.login(phone,password);
-
 		if(login != null){
 			System.out.println(login.getUid());
-			return "µÇÂ½³É¹¦";
+			return "succeed";
 		}else{
-			return "µÇÂ¼Ê§°Ü";
+			return "defeated";
 		}
 	}
 

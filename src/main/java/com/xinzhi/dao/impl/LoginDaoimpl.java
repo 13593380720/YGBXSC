@@ -34,6 +34,7 @@ public class LoginDaoimpl implements ILoginDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		System.out.println(ui);
 		return ui;
 	}
 }

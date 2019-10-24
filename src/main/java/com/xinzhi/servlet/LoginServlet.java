@@ -18,30 +18,31 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		//
-		response.setContentType("src/main/text/html;charset=utf-8");
+		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		String uname = request.getParameter("uname");
 		String upwd = request.getParameter("upwd");
-		System.out.println(uname+upwd);
+		System.out.println(uname + upwd);
 		if(uname == "" || upwd == ""){
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}
-		LoginServiceImpl lsi = new LoginServiceImpl();
-		String result = lsi.login(uname, upwd);
-		request.setAttribute("loginResult", result);
-		if(result.equals("登陆成功")){
-			request.setAttribute("iphone", uname);
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}else{
-			request.getRequestDispatcher("login.jsp").forward(request, response);
-		}
+         request.getRequestDispatcher("login.jsp").forward(request, response);
+         }
+         LoginServiceImpl lsi = new LoginServiceImpl();
+         String result = lsi.login(uname, upwd);
+//         System.out.println(result);
+         request.setAttribute("loginResult", result);
+         if(result.equals("succeed")){
+//             request.setAttribute("iphone", uname);
+             request.getRequestDispatcher("index.jsp").forward(request, response);
+         }else{
+             request.getRequestDispatcher("login.jsp").forward(request, response);
+             System.out.println(result);
+         }
 
-	}
+         }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+public void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
         doGet(request, response);
-    }
-
-}
+        }
+        }

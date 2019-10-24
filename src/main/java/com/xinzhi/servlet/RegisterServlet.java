@@ -15,7 +15,7 @@ public class RegisterServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("src/main/text/html;charset=utf-8");
+		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("UTF-8");
 		String uphone = request.getParameter("uphone");
 		String upwd = request.getParameter("upwd");
@@ -24,8 +24,9 @@ public class RegisterServlet extends HttpServlet {
 		String page = rsi.register(uphone, upwd);
         int yz = SendSms.getSjs();
         System.out.println(yz);
+		System.out.println(uphone + upwd + yzm);
         if (yzm.equals(yz)) {
-            if (page.equals("数据成功添加")) {
+            if (page.equals("succeed")) {
                 request.setAttribute("iphone", uphone);
                 request.getRequestDispatcher("Index.jsp").forward(request, response);
             } else {

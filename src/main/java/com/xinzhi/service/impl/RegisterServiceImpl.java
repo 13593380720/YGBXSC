@@ -13,13 +13,13 @@ public class RegisterServiceImpl implements IRegisterService {
 		RegisterDaoImpl rdi = new RegisterDaoImpl();
 		String a = null;
 		if(rdi.Selectxx(uphone) != null){
-			a = "该用户已经注册";
+			a = "repetition";
 		}else{
 			int count = rdi.register(uphone, upwd);
 			if(count>0){
-				a = "数据成功添加";
+				a = "succeed";
 			}else{
-				a = "添加失败";
+				a = "defeated";
 			}
 		}
 		return a;
