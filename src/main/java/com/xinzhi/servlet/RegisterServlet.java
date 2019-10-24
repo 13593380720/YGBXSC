@@ -15,26 +15,25 @@ public class RegisterServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html;charset=utf-8");
+		response.setContentType("src/main/text/html;charset=utf-8");
 		request.setCharacterEncoding("UTF-8");
 		String uphone = request.getParameter("uphone");
 		String upwd = request.getParameter("upwd");
+		String upwd1 = request.getParameter("upwd1");
 		String yzm = request.getParameter("yzm");
+		int i = 0;
+		if(yzm != null){
+			i = Integer.parseInt(yzm);
+		}
 		RegisterServiceImpl rsi = new RegisterServiceImpl();
 		String page = rsi.register(uphone, upwd);
-        int yz = SendSms.getSjs();
-        System.out.println(yz);
-		System.out.println(uphone + upwd + yzm);
-        if (yzm.equals(yz)) {
-            if (page.equals("succeed")) {
-                request.setAttribute("iphone", uphone);
-                request.getRequestDispatcher("Index.jsp").forward(request, response);
-            } else {
-                request.getRequestDispatcher("regist.jsp").forward(request, response);
-
-            }
-        }
-
+		int yz = SendSms.getSjs();
+		if(yz == i&&page.equals("数据成功添加")&&upwd.equals(upwd1)){
+			/* request.setAttribute("iphone", uphone);*/
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}else {
+			request.getRequestDispatcher("register.jsp").forward(request, response);
+		}
 	}
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
